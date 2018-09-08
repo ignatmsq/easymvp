@@ -1,7 +1,7 @@
 package com.naxtylab.dagger.screens.main.di
 
 import android.content.Context
-import com.naxtylab.dagger.base.di.BaseModeule
+import com.naxtylab.easy.di.BaseModeule
 import com.naxtylab.dagger.screens.main.MainPresenterImpl
 import com.naxtylab.dagger.repos.SettingsRepo
 import com.naxtylab.dagger.screens.main.MainContract

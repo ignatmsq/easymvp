@@ -1,4 +1,4 @@
-package com.naxtylab.dagger.base.ui
+package com.naxtylab.easy.ui
 
 import java.io.Serializable
 

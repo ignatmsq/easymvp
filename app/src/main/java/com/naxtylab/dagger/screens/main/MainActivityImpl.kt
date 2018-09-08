@@ -2,11 +2,10 @@ package com.naxtylab.dagger.screens.main
 
 import android.os.Bundle
 import android.util.Log
-import com.naxtylab.dagger.base.ui.BaseActivity
+import com.naxtylab.easy.ui.BaseActivity
 import com.naxtylab.dagger.screens.main.di.DaggerMainComponent
 import com.naxtylab.dagger.screens.main.di.MainComponent
 import com.naxtylab.dagger.screens.main.di.MainModule
-import javax.inject.Inject
 
 
 // https://android.jlelse.eu/mvp-dagger-2-rx-clean-modern-android-app-code-74f63c9a6f2f

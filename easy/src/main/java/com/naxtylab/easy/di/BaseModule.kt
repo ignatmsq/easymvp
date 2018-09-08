@@ -1,7 +1,7 @@
-package com.naxtylab.dagger.base.di
+package com.naxtylab.easy.di
 
 import android.content.Context
-import com.naxtylab.dagger.base.ui.Contract
+import com.naxtylab.easy.ui.Contract
 import dagger.Module
 import dagger.Provides
 

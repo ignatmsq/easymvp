@@ -13,13 +13,13 @@ class AppModule {
 
     @Provides
     @Named("settings repo")
-    internal fun provideSettingsRepo(context: Context): SettingsRepo {
+    fun provideSettingsRepo(context: Context): SettingsRepo {
         return SettingsRepoImpl(context)
     }
 
     @Provides
     @Named("stub settings repo")
-    internal fun provideStubSettingsRepo(context: Context): SettingsRepo {
+    fun provideStubSettingsRepo(context: Context): SettingsRepo {
         return StubSettingsRepoImpl(context)
     }
 }

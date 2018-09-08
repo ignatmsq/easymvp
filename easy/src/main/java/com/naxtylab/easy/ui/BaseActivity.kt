@@ -1,8 +1,8 @@
-package com.naxtylab.dagger.base.ui
+package com.naxtylab.easy.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.naxtylab.dagger.base.di.BaseComponent
+import com.naxtylab.easy.di.BaseComponent
 import java.io.Serializable
 import javax.inject.Inject
 

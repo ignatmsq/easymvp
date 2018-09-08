@@ -1,6 +1,6 @@
 package com.naxtylab.dagger.screens.main
 
-import com.naxtylab.dagger.base.ui.Contract
+import com.naxtylab.easy.ui.Contract
 
 interface MainContract {
     interface MainActivity : Contract.Ui {

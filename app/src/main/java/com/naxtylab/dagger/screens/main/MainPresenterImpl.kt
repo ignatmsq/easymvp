@@ -1,6 +1,6 @@
 package com.naxtylab.dagger.screens.main
 
-import com.naxtylab.dagger.base.ui.BasePresenter
+import com.naxtylab.easy.ui.BasePresenter
 import com.naxtylab.dagger.repos.SettingsRepo
 
 class MainPresenterImpl(
