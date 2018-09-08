@@ -1,7 +1,9 @@
 Easy MVP - lets make architecture easy
 ========
 
-Minimalistic and easy implementation of MVP pattern with [Kotlin generics](https://kotlinlang.org/docs/reference/generics.html) and [Dagger 2](https://github.com/google/dagger)
+Minimalistic and easy implementation of MVP pattern for Android with sample application.
+
+Build with [Kotlin generics](https://kotlinlang.org/docs/reference/generics.html) and [Dagger 2](https://github.com/google/dagger)
 
 Key features:
 * Easy separation of layers
@@ -9,6 +11,7 @@ Key features:
 * Simplified state save/restore with serializables
 * Suitable for app from prototype to enterprise
 * Simplified to just 5 generic classes
+* Dependency injection
 
 
 Developed By
