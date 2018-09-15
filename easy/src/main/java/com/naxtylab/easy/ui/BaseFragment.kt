@@ -12,11 +12,6 @@ abstract class BaseFragment<
         PARAMS : Contract.Params>
     : Contract.Ui, Fragment() {
 
-    companion object {
-        private const val STATE_KEY = "state"
-        private const val PARAMS_KEY = "params"
-    }
-
     @Inject
     protected lateinit var presenter: PRESENTER
 
