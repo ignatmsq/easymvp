@@ -6,11 +6,11 @@ import com.naxtylab.easy.di.BaseComponent
 import javax.inject.Inject
 
 abstract class BaseActivity<
-        UI,
         PRESENTER : Contract.Presenter<STATE, PARAMS>,
-        COMPONENT : BaseComponent<UI, PRESENTER, COMPONENT, STATE, PARAMS>,
+        COMPONENT : BaseComponent<PRESENTER, COMPONENT, STATE, PARAMS>,
         STATE : Contract.State,
-        PARAMS: Contract.Params> : AppCompatActivity() {
+        PARAMS : Contract.Params>
+    : Contract.Ui, AppCompatActivity() {
 
     companion object {
         private const val STATE_KEY = "state"
@@ -45,6 +45,6 @@ abstract class BaseActivity<
         outState?.putSerializable(STATE_KEY, s)
     }
 
-    private fun <TYPE>Bundle?.extract(key:String) = this?.getSerializable(key)
+    private fun <TYPE> Bundle?.extract(key: String) = this?.getSerializable(key)
             ?.let { serializable -> serializable as TYPE }
 }

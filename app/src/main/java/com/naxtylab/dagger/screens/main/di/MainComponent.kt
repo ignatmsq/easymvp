@@ -8,6 +8,6 @@ import dagger.Component
 
 
 @Component(modules = arrayOf(MainModule::class, AppModule::class))
-interface MainComponent : BaseComponent<MainActivity, MainComponent, MainPresenter, State, Params> {
-    override fun inject(ui: BaseActivity<MainActivity, MainComponent, MainPresenter, State, Params>)
+interface MainComponent : BaseComponent<MainPresenter, MainComponent, State, Params> {
+    override fun inject(ui: BaseActivity<MainPresenter, MainComponent, State, Params>)
 }

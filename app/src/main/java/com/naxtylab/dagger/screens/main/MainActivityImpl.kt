@@ -9,7 +9,7 @@ import com.naxtylab.dagger.screens.main.di.MainModule
 
 class MainActivityImpl :
         MainContract.MainActivity,
-        BaseActivity<MainContract.MainActivity, MainComponent, MainContract.MainPresenter, MainContract.State, MainContract.Params>() {
+        BaseActivity<MainContract.MainPresenter, MainComponent, MainContract.State, MainContract.Params>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
