@@ -7,8 +7,8 @@ import javax.inject.Inject
 
 abstract class BaseActivity<
         UI,
-        COMPONENT : BaseComponent<UI, COMPONENT, PRESENTER, STATE, PARAMS>,
         PRESENTER : Contract.Presenter<STATE, PARAMS>,
+        COMPONENT : BaseComponent<UI, PRESENTER, COMPONENT, STATE, PARAMS>,
         STATE : Contract.State,
         PARAMS: Contract.Params> : AppCompatActivity() {
 

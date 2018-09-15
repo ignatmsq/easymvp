@@ -27,16 +27,4 @@ class MainPresenterImpl(
             ui.setMainText("not first")
         }
     }
-
-    override var state: MainContract.State?
-        get() = MainContract.State()
-        set(value) {
-            //TODO: Init presenter
-        }
-
-    override var params: MainContract.Params?
-        get() = null
-        set(value) {
-            //TODO: Init presenter
-        }
 }
