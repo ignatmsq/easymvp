@@ -1,16 +1,16 @@
 package com.naxtylab.easy.ui
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
 import com.naxtylab.easy.di.BaseComponent
 import javax.inject.Inject
 
-abstract class BaseActivity<
+abstract class BaseFragment<
         PRESENTER : Contract.Presenter<STATE, PARAMS>,
         COMPONENT : BaseComponent<PRESENTER, COMPONENT, STATE, PARAMS>,
         STATE : Contract.State,
         PARAMS : Contract.Params>
-    : Contract.Ui, AppCompatActivity() {
+    : Contract.Ui, Fragment() {
 
     companion object {
         private const val STATE_KEY = "state"
@@ -24,7 +24,7 @@ abstract class BaseActivity<
         super.onCreate(savedInstanceState)
         getComponent().inject(this)
         presenter.state = savedInstanceState.extract<STATE>(STATE_KEY)
-        presenter.params = intent.extras.extract<PARAMS>(PARAMS_KEY)
+        presenter.params = arguments.extract<PARAMS>(PARAMS_KEY)
     }
 
     override fun onStart() {
@@ -39,8 +39,8 @@ abstract class BaseActivity<
 
     abstract fun getComponent(): COMPONENT
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState?.putSerializable(STATE_KEY, presenter.state)
+        outState.putSerializable(STATE_KEY, presenter.state)
     }
 }

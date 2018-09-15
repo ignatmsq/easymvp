@@ -1,6 +1,7 @@
 package com.naxtylab.easy.di
 
 import com.naxtylab.easy.ui.BaseActivity
+import com.naxtylab.easy.ui.BaseFragment
 import com.naxtylab.easy.ui.Contract
 
 interface BaseComponent<
@@ -8,5 +9,8 @@ interface BaseComponent<
         COMPONENT : BaseComponent<PRESENTER, COMPONENT, STATE, PARAMS>,
         STATE : Contract.State,
         PARAMS : Contract.Params> {
+
     fun inject(ui: BaseActivity<PRESENTER, COMPONENT, STATE, PARAMS>)
+
+    fun inject(ui: BaseFragment<PRESENTER, COMPONENT, STATE, PARAMS>)
 }
