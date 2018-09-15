@@ -3,22 +3,28 @@ package com.naxtylab.easy.ui
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.naxtylab.easy.di.BaseComponent
-import java.io.Serializable
 import javax.inject.Inject
 
-abstract class BaseActivity<U, C : BaseComponent<U, C, P, S>, P : Contract.Presenter<S>, S : Serializable> : AppCompatActivity() {
+abstract class BaseActivity<
+        UI,
+        COMPONENT : BaseComponent<UI, COMPONENT, PRESENTER, STATE, PARAMS>,
+        PRESENTER : Contract.Presenter<STATE, PARAMS>,
+        STATE : Contract.State,
+        PARAMS: Contract.Params> : AppCompatActivity() {
 
     companion object {
         private const val STATE_KEY = "state"
+        private const val PARAMS_KEY = "params"
     }
 
     @Inject
-    protected lateinit var presenter: P
+    protected lateinit var presenter: PRESENTER
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getComponent().inject(this)
-        presenter.state = savedInstanceState.extractState()
+        presenter.state = savedInstanceState.extract<STATE>(STATE_KEY)
+        presenter.params = intent.extras.extract<PARAMS>(PARAMS_KEY)
     }
 
     override fun onStart() {
@@ -31,7 +37,7 @@ abstract class BaseActivity<U, C : BaseComponent<U, C, P, S>, P : Contract.Prese
         presenter.stop()
     }
 
-    abstract fun getComponent(): C
+    abstract fun getComponent(): COMPONENT
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
@@ -39,6 +45,6 @@ abstract class BaseActivity<U, C : BaseComponent<U, C, P, S>, P : Contract.Prese
         outState?.putSerializable(STATE_KEY, s)
     }
 
-    fun Bundle?.extractState() = this?.getSerializable(STATE_KEY)
-            ?.let { serializable -> serializable as S }
+    private fun <TYPE>Bundle?.extract(key:String) = this?.getSerializable(key)
+            ?.let { serializable -> serializable as TYPE }
 }

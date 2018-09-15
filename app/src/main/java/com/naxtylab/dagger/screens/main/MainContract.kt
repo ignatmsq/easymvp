@@ -7,9 +7,11 @@ interface MainContract {
         fun setMainText(text: String)
     }
 
-    interface MainPresenter : Contract.Presenter<State> {
+    interface MainPresenter : Contract.Presenter<State, Params> {
         fun onClickSmth()
     }
 
     class State : Contract.State
+
+    class Params : Contract.Params
 }

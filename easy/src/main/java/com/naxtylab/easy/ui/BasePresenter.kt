@@ -1,3 +1,3 @@
 package com.naxtylab.easy.ui
 
-abstract class BasePresenter<U, S>(val ui: U) : Contract.Presenter<S>
+abstract class BasePresenter<UI, STATE : Contract.State, PARAMS: Contract.Params>(val ui: UI) : Contract.Presenter<STATE, PARAMS>

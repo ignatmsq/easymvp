@@ -7,7 +7,10 @@ class MainPresenterImpl(
         ui: MainContract.MainActivity,
         val settingsRepo: SettingsRepo) :
         MainContract.MainPresenter,
-        BasePresenter<MainContract.MainActivity, MainContract.State>(ui) {
+        BasePresenter<
+                MainContract.MainActivity,
+                MainContract.State,
+                MainContract.Params>(ui) {
 
     override fun start() {
         //TODO: Do smth.
@@ -27,6 +30,12 @@ class MainPresenterImpl(
 
     override var state: MainContract.State?
         get() = MainContract.State()
+        set(value) {
+            //TODO: Init presenter
+        }
+
+    override var params: MainContract.Params?
+        get() = null
         set(value) {
             //TODO: Init presenter
         }
